@@ -10,11 +10,11 @@ For detailed instructions, follow steps 2 and 3 on this page: https://github.com
 ---
 
 ### INSTRUCTIONS
-- user "refresh" button to get up-to-date list of currently open projects
-- click to X to save and close a project
+- use "refresh" button to get up-to-date list of currently open projects
+- click the X to save and close a project
 
 ### RECENT FIXES
-- extension check it's closing the right file based on filepath rather than an id that can change when new projects are open
+- extension now checks it's closing the right file based on filepath rather than an id (avoids issues when projects list hasn't been refreshed before using it to close a project)
 
 ### KNOWN ISSUES
 - Close All and Save All buttons are not functional yet

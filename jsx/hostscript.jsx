@@ -4,12 +4,22 @@
 
 function getProjectsList() {
     var projectsToHtml = ""
+    var projectsArr = []
     for ( i = 0; i < app.projects.numProjects; i++){
-        projectsToHtml = projectsToHtml + "<li id='" + i + "'><img src='icons/SP_NonMedia_Sm_N_D@3to2x.png'><p>" + (app.projects[i].rootItem.name).slice(0, -7) + "</p><i class='fas fa-times'></i></li>"
+        projectsArr.push({name: (app.projects[i].name).slice(0, -7), path: app.projects[i].path});
+        // projectsToHtml = projectsToHtml + "<li id='" + i + "'><img src='icons/SP_NonMedia_Sm_N_D@3to2x.png'><p>" + (app.projects[i].rootItem.name).slice(0, -7) + "</p><i class='fas fa-times'></i></li>"
     }
-    return projectsToHtml;
+    string = JSON.stringify(projectsArr)
+    return string;
 }
 
 function removeProject(id) {
-    app.projects[id].closeDocument()
+    for ( var i = 0; i < app.projects.numProjects; i++){
+        if (app.projects[i].path === id){
+            app.projects[i].closeDocument();
+            return
+        }
+    }
+    alert("This project is already closed");
+    
 }
